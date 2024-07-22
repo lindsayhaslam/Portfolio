@@ -1,0 +1,397 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    color: white;
+    background: black; /* Subtle gradient from light dark (top) to darker (bottom) */
+    text-align: center;
+}
+
+header {
+    padding: 0rem;
+    background: white;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    display: flex; /* Enables Flexbox */
+    align-items: center; /* Vertically centers the items in the container */
+    justify-content: flex-start; /* Aligns items to the start of the container */
+}
+
+.header-logo {
+    margin-right: 10px; /* Adds some space between the logo and the menu */
+    width: 200px; /* Or any other size */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+#hamburger-menu {
+    text-align: right;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    background: white;
+    color: black;
+    font-size: 2rem; /* Adjust size as needed */
+    display: block; /* Hidden by default, shown in responsive design */
+}
+
+/* Dropdown Menu Style */
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#dropdown-menu ul li a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+#dropdown-menu ul li a:hover {
+    background-color: #f1f1f1;
+}
+
+#connectLink {
+    position: relative; /* Ensures text is positioned above the SVG */
+    z-index: 1; /* Higher z-index to be on top of the SVG */
+    font-size: 5.5vw; /* Large, bold text */
+    margin-bottom: 0rem;
+    white-space: wrap;
+    overflow: hidden;
+    margin-top: 4rem;
+}
+
+.header-container, #hamburger-menu, .header-logo, #dropdown-menu {
+    position: relative;
+    z-index: 2; /* Higher z-index to stay above the SVG animation */
+}
+
+
+#animated-text {
+       font-size: 5.5vw; /* Large, bold text */
+       margin-bottom: 0rem;
+       background: linear-gradient(to right,
+           #FFFFFF,
+           #F5F5F9, /* Lightest Variation */
+           #DBDEF0, /* Light Variation */
+           #878BA5, /* Medium Variation */
+           #515571, /* Dark Variation */
+           #151931, /* Darkest Variation */
+           #004AAD, /* Primary Color */
+           #151931, /* Darkest Variation (again) */
+           #515571, /* Dark Variation (again) */
+           #878BA5, /* Medium Variation (again) */
+           #DBDEF0, /* Light Variation (again) */
+           #F5F5F9,  /* Lightest Variation (again) */
+           #FFFFFF
+       );
+       -webkit-background-clip: text;
+       color: transparent;
+       background-size: 200% auto;
+       animation: gradient-shift 10s linear infinite;
+   }
+
+
+@keyframes gradient-shift {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+#join-us{
+    position: relative;
+    overflow: hidden;
+    margin-top: 100px;
+}
+
+#join-us svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places the SVG behind the text */
+}
+
+#about p{
+    font-size: 1.8vw;
+    color: #fff;
+    margin-bottom: 4rem;
+}
+
+button {
+    width: 15%;
+    padding: 15px;
+    border: none;
+    background-color: #0f57c2;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #1877F2; /* Changes to this color on hover */
+}
+
+section {
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    text-align: center;
+}
+
+#reasons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-gap: 31px; /* Spacing between grid items */
+    padding: 20px; /* Padding around the grid */
+    justify-content: center; /* Center grid items if they don't take up full width */
+    margin: 0 auto; /* Auto margins for left and right */
+    max-width: calc(2 * 500px + 31px); /* Maximum width of the grid */
+}
+
+#reasons div {
+      border-radius: 5%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Subtle drop shadow */
+      background: linear-gradient(#1a1a1a, #1a1a1a, black); /* Slightly lighter than black */
+      padding: 1rem; /* Padding inside each grid item */
+}
+
+#why {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    margin-top: 180px;
+}
+
+.full-width h2 {
+    position: relative;
+    display: inline-block; /* Allows the pseudo-element to fit the content width */
+}
+
+.full-width h2::after {
+     content: '';
+     position: absolute;
+     bottom: -5px; /* Adjust as needed for spacing */
+     left: 0;
+     width: 0; /* Initially no underline */
+     height: 3px; /* Thickness of the underline */
+     background-color: white; /* Color of the underline */
+     transition: width 1s ease-in-out; /* Smooth transition for the underline */
+ }
+
+ .full-width h2.active::after {
+     width: 100%; /* Full width when active */
+ }
+
+#reasons h2 {
+    font-size: 2rem; /* Adjust the size as needed */
+}
+
+#reasons h3 {
+    font-size: 1.5rem; /* Adjust the size as needed */
+    margin-top: 1rem;
+}
+
+#reasons p {
+    font-size: 1.2rem; /* Adjust the size as needed */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+#how {
+   margin-top: 150px;
+}
+
+#join {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.join-text {
+    width: 50%; /* Adjust as needed */
+    padding: 1rem; /* Padding around each element */
+    margin-bottom: 1rem; /* Space between the elements */
+    justify-text: left;
+}
+
+#joinForm {
+    width: 40%; /* Adjust as needed */
+    /* Additional styling as needed */
+}
+
+.animate-on-scroll {
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0.5;
+        transform: translateY(90px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-from-right {
+    opacity: 0; /* Start invisible */
+    animation-name: slideInFromRight;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; /* Keep state after animation */
+}
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 1080px) {
+   #connectLink, #animated-text {
+           font-size: 10vw; /* Increase font size for smaller screens */
+       }
+
+       #about p, #reasons p, #join p {
+           font-size: 1.6rem; /* Adjust the font size as needed */
+       }
+
+       #reasons, #join {
+           justify-content: center; /* Centers content on smaller screens */
+       }
+
+       section h2 {
+           font-size: 3rem; /* Adjust the font size as needed */
+       }
+
+       #reasons h3, #join h3 {
+           font-size: 2.4rem; /* Adjust the font size as needed */
+       }
+}
+
+#join h2 {
+    font-size: 2rem; /* Adjust the size as needed */
+    margin-top: 0rem;
+    text-align: left;
+}
+
+#join h3 {
+    font-size: 2rem; /* Adjust the size as needed */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+#join p {
+    font-size: 1.2rem; /* Adjust the size as needed */
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    text-align: left;
+}
+
+/* Form styling */
+form {
+   width: 40%; /* Adjust the width of the form */
+   background: rgba(255, 255, 255, 1); /* Opaque white background for the form */
+    padding: 1rem; /* Adjust padding for the form */
+    background: rgba(0, 74, 173, 0.5); /* Slightly transparent background */
+    border-radius: 15px;
+    box-shadow: none;
+}
+
+form label {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1.7rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select{
+width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.5rem; /* Increase the font size */
+}
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.5rem; /* Increase the font size */
+}
+
+form button {
+    width: 30%;
+    padding: 15px;
+    border: none;
+    background-color: #0f57c2;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bottom{
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 4rem;
+    margin-right: 4rem;
+    margin-left: 4rem;
+}
+
+footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
